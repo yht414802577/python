@@ -10,5 +10,8 @@ body = bs.body
 data = body.find('div',{'id':'7d'})  #查询div标签id = 7d
 input_bq = data.find('input')   #查询div标签id = 7d 下面的所有input标签
 #print(input_bq)
-ul = data.find('li')
-print(ul)
+ul = data.find('ul')
+#print(ul)
+
+li = ul.find('li')
+print(li)
