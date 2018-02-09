@@ -1,0 +1,15 @@
+TOUCH|{'x':459,'y':852,'type':'downAndUp',}
+TOUCH|{'x':459,'y':852,'type':'downAndUp',}
+TYPE|{'message':'15117254521',}
+TOUCH|{'x':381,'y':1016,'type':'downAndUp',}
+TOUCH|{'x':286,'y':1000,'type':'downAndUp',}
+TOUCH|{'x':236,'y':1032,'type':'downAndUp',}
+TYPE|{'message':'254521',}
+TOUCH|{'x':249,'y':1860,'type':'downAndUp',}
+TOUCH|{'x':1019,'y':1164,'type':'downAndUp',}
+TOUCH|{'x':553,'y':1368,'type':'downAndUp',}
+TOUCH|{'x':108,'y':896,'type':'downAndUp',}
+TOUCH|{'x':27,'y':136,'type':'downAndUp',}
+TOUCH|{'x':327,'y':852,'type':'downAndUp',}
+TOUCH|{'x':33,'y':136,'type':'downAndUp',}
+WAIT|{'seconds':2.0,}
