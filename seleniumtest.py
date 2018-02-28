@@ -1,7 +1,12 @@
+# coding = utf-8
 
-import selenium.webdriver.chrome.webdriver
+from selenium import webdriver
 
-url = 'http://www.baidu.com'
-driver = selenium.webdriver.Chrome()
+browser = webdriver.Firefox()
 
-driver.get(url)
+browser.get("http://www.baidu.com")
+
+browser.find_element_by_id("kw").send_keys("selenium")
+browser.find_element_by_id("su").click()
+
+browser.quit()   
