@@ -15,3 +15,9 @@ ul = data.find('ul')
 
 li = ul.find('li')
 print(li)
+final = []
+for day in li:
+    tepm = []
+    date = day.find('h1').string
+    tepm = date.append(date)
+    inf = day.find('p')
