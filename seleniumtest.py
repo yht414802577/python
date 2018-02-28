@@ -4,7 +4,6 @@
 
 from selenium import webdriver
 
-System.set
 browser = webdriver.Firefox()
 
 browser.get("http://www.baidu.com")
