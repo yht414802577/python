@@ -45,7 +45,7 @@ def interfaceTest(case_list):     #读取一条接口测试用例
             request_urls.append(new_url)
 
         if method.upper() == 'GET':     #如果为get方法，读取get方法请求和返回数据
-            print str(case_id)+''+new_url       #打印用例id和接口地址
+            print(str(case_id)+''+new_url)       #打印用例id和接口地址
             headers = {
                 'Host':HOSTNAME,
                 'Connection':'keep-alive',
@@ -64,14 +64,14 @@ def interfaceTest(case_list):     #读取一条接口测试用例
                 if JFIF(results):
                     results = 'JFIF ok'     #校验jfif则为图片
                 else:
-                    print '接口名称'+interface_name
-                    print '接口地址'+new_url
-                    print "相应数据"+results
-                    print str(case_id)+'~~~~~~~~~~~~success~~~~~~~~~~~~~~'
-                print '接口名称' + interface_name
-                print '接口地址' + new_url
-                print "相应数据" + results
-                print str(case_id) + '~~~~~~~~~~~~success~~~~~~~~~~~~~~'
+                    print('接口名称'+interface_name)
+                    print('接口地址'+new_url)
+                    print('相应数据'+results)
+                    print(str(case_id)+'~~~~~~~~~~~~success~~~~~~~~~~~~~~')
+                print('接口名称' + interface_name)
+                print('接口地址' + new_url)
+                print('相应数据' + results)
+                print(str(case_id) + '~~~~~~~~~~~~success~~~~~~~~~~~~~~')
             else:
                 res_flags.append('fail')
                 writeResult(case_id,'fail')     #结果为fail写入关联用例id
@@ -79,14 +79,14 @@ def interfaceTest(case_list):     #读取一条接口测试用例
                     writebug(case_id,interface_name,new_url,'api response is error',res_check)   #如果接口响应异常，打印错误信息记录bug写到数据库
                 else:
                     writebug(case_id, interface_name, new_url, 'api response is error', res_check)      #如果接口验证数据错误，打印错误信息记录bug写到数据库
-                    print '接口名称'+interface_name
-                    pring '接口地址'+new_url
-                    print "相应数据"+results
-                    print str(case_id)+'~~~~~~~~~~~~success~~~~~~~~~~~~~~'
-                print '接口名称' + interface_name
-                pring '接口地址' + new_url
-                print "相应数据" + results
-                print str(case_id) + '~~~~~~~~~~~~success~~~~~~~~~~~~~~'
+                    print('接口名称'+interface_name)
+                    print('接口地址'+new_url)
+                    print('相应数据'+results)
+                    print(str(case_id)+'~~~~~~~~~~~~success~~~~~~~~~~~~~~')
+                print('接口名称' + interface_name)
+                print('接口地址' + new_url)
+                print('相应数据' + results)
+                print(str(case_id) + '~~~~~~~~~~~~success~~~~~~~~~~~~~~')
 
         else:       #请求为post
             headers = {
@@ -107,15 +107,15 @@ def interfaceTest(case_list):     #读取一条接口测试用例
                 if JFIF(results):
                     results = 'JFIF ok'
                 else:
-                    print '接口名称' + interface_name
-                    print '接口地址' + new_url
-                    print '相应数据' + results
-                    print str(case_id) + '~~~~~~~~~~~~success~~~~~~~~~~~~~~'
+                    print('接口名称' + interface_name)
+                    print('接口地址' + new_url)
+                    print('相应数据' + results)
+                    print(str(case_id) + '~~~~~~~~~~~~success~~~~~~~~~~~~~~')
                     continue
-                print '接口名称' + interface_name
-                print '接口地址' + new_url
-                print '相应数据' + results
-                print str(case_id) + '~~~~~~~~~~~~success~~~~~~~~~~~~~~'
+                print('接口名称' + interface_name)
+                print('接口地址' + new_url)
+                print('相应数据' + results)
+                print(str(case_id) + '~~~~~~~~~~~~success~~~~~~~~~~~~~~')
             else:
                 res_flags.append('fail')
                 writeResult(case_id, 'fail')
@@ -124,10 +124,10 @@ def interfaceTest(case_list):     #读取一条接口测试用例
                 else:
                     writebug(case_id, interface_name, new_url, 'api response is error', res_check)
 
-                print '接口名称' + interface_name
-                print '接口地址' + new_url
-                print '相应数据' + results
-                print str(case_id) + '~~~~~~~~~~~~success~~~~~~~
+                print('接口名称' + interface_name)
+                print('接口地址' + new_url)
+                print('相应数据' + results)
+                print(str(case_id) + '~~~~~~~~~~~~success~~~~~~~')
 
 def readRes(res,res_check):     #校验结果。如果通过返回pass，否则返回错误提示
     res = res.replace(':',"=").replace('','=')      #校验时替换符号为=号，在进行校验
@@ -151,4 +151,50 @@ def GetToken():     #取用户登录的token值
         'phone':'123456',
         'pwd':'1234'
     }       #参数为登录手机号和密码
-    request = requests.
+    request = urllib2.Request(url=url,data=urllib.urlencode(params))    #发送接口库请求url和参数
+    response = urllib2.urlopen(request)     #打开url
+    data = response.read()      #返回响应数据
+    regx = '.*"token":"(.*)","ud"'      #正则表达式token，左边匹配“token”:",右边匹配“，“ud”
+    pm = re.search(regx,data)       #取token匹配值
+    state = pm.group(1)     #如果匹配到state匹配到0，则返回为0；否则为登录
+    if state == '0':
+        return True
+    return False
+
+def reserror(results):      #接口页面返回匹配到html页面服务器美哦与响应时，改为调用接口错误
+    global html
+    regx = 'html'       #regx变量赋值为html字符串，如果服务器异常时返回404等html标识，进行匹配
+    pm = re.search(regx,results)
+    if  pm:
+        return regx
+    return False
+
+def JFIF(results):      #接口页面返回匹配到JFIF时，说明返回图片格式正确，负责错误
+    global JFIF
+    regx = 'JFIF'
+    pm = re.search(regx,results)
+    if  pm:
+        return regx
+    return False
+
+def writeResult(case_id,result):        #写测试结果到数据库
+    result = result.encode('utf-8')
+    now = time.strftime("%Y-%m-%d %H:%M:%S")        #当前时间格式
+    sql = "updata zt_testrun set lastRunResult = %s , lastRunDate = %s , lastRunner = 'auto' where zt_testrun.task = 8 and zt_testrun.case = %s;"
+    param = (result,now,case_id)        #把测试结果，时间，用例id，作为蚕食写到数据库
+    coon = pymysql.connect(user = 'root' , passwd = 'test123456' , db = 'zentao' , port = 3306 , host = '192.168.58.79' , charset = 'utf8')     #连接数据库
+    cursor = coon.cursor()
+    cursor.execute(sql,param)
+    coon.commit()
+    cursor.close()
+    coon.close()
+
+def writeBug(bug_id,interface_name,request,reponse,res_check):
+    interface_name = interface_name.encode('utf-8')
+    res_check = res_check.encode('utf-8')
+    request = request.encode('utf-8')
+    reponse = reponse.encode('utf-8')
+    now = time.strftime("%Y-%m-%d %H:%M:%S")
+    bug_title = str(bug_id) + '_' +interface_name + '_出错了'
+    step = '[请求报文]' + request + '<br/>' + '[预期结果]' + res_check + '<br/>' + '[响应报文]' + reponse
+    sql = ""
