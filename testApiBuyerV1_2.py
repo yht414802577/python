@@ -76,9 +76,9 @@ def interfaceTest(case_list):     #读取一条接口测试用例
                 res_flags.append('fail')
                 writeResult(case_id,'fail')     #结果为fail写入关联用例id
                 if reserror(results):
-                    writebug(case_id,interface_name,new_url,'api response is error',res_check)   #如果接口响应异常，打印错误信息记录bug写到数据库
+                    writeBug(case_id,interface_name,new_url,'api response is error',res_check)   #如果接口响应异常，打印错误信息记录bug写到数据库
                 else:
-                    writebug(case_id, interface_name, new_url, 'api response is error', res_check)      #如果接口验证数据错误，打印错误信息记录bug写到数据库
+                    writeBug(case_id, interface_name, new_url, 'api response is error', res_check)      #如果接口验证数据错误，打印错误信息记录bug写到数据库
                     print('接口名称'+interface_name)
                     print('接口地址'+new_url)
                     print('相应数据'+results)
@@ -120,9 +120,9 @@ def interfaceTest(case_list):     #读取一条接口测试用例
                 res_flags.append('fail')
                 writeResult(case_id, 'fail')
                 if reserror(results):
-                    writebug(case_id, interface_name, new_url, 'api response is error', res_check)
+                    writeBug(case_id, interface_name, new_url, 'api response is error', res_check)
                 else:
-                    writebug(case_id, interface_name, new_url, 'api response is error', res_check)
+                    writeBug(case_id, interface_name, new_url, 'api response is error', res_check)
 
                 print('接口名称' + interface_name)
                 print('接口地址' + new_url)
@@ -136,7 +136,7 @@ def readRes(res,res_check):     #校验结果。如果通过返回pass，否则�
         if s in res:
             pass
         else:
-            return u'错误，返回参数和预期结果不一致'+sre(s)
+            return u'错误，返回参数和预期结果不一致'+str(s)
     return 'pass'
 
 def urlParam(param):    #参数值替换
@@ -197,4 +197,10 @@ def writeBug(bug_id,interface_name,request,reponse,res_check):
     now = time.strftime("%Y-%m-%d %H:%M:%S")
     bug_title = str(bug_id) + '_' +interface_name + '_出错了'
     step = '[请求报文]' + request + '<br/>' + '[预期结果]' + res_check + '<br/>' + '[响应报文]' + reponse
-    sql = ""
+    sql = "insert into zt_bug (openedDate , openedBy , lastEditedDate , lastEditedBy , status , steps , stoyVersion ) values ('%s',)"
+    coon = pymysql.connect(user = 'root' , passwd = 'test123456' , db = 'zentao' , port = 3306 . host = '172.0.0.1' , charset = 'utf8')
+    cursor = coon.cursor()
+    cursor.execute(sql)
+    coon.commit()
+    cursor.close()
+    coon.close()
