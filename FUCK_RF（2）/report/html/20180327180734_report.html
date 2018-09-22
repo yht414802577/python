@@ -1,0 +1,645 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Unit Test Report</title>
+    <meta name="generator" content="HTMLTestRunner 0.8.2"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    
+<style type="text/css" media="screen">
+body        { font-family: verdana, arial, helvetica, sans-serif; font-size: 80%; }
+table       { font-size: 100%; }
+pre         { }
+
+/* -- heading ---------------------------------------------------------------------- */
+h1 {
+    font-size: 16pt;
+    color: gray;
+}
+.heading {
+    margin-top: 0ex;
+    margin-bottom: 1ex;
+}
+
+.heading .attribute {
+    margin-top: 1ex;
+    margin-bottom: 0;
+}
+
+.heading .description {
+    margin-top: 4ex;
+    margin-bottom: 6ex;
+}
+
+/* -- css div popup ------------------------------------------------------------------------ */
+a.popup_link {
+}
+
+a.popup_link:hover {
+    color: red;
+}
+
+.popup_window {
+    display: none;
+    position: relative;
+    left: 0px;
+    top: 0px;
+    /*border: solid #627173 1px; */
+    padding: 10px;
+    background-color: #E6E6D6;
+    font-family: "Lucida Console", "Courier New", Courier, monospace;
+    text-align: left;
+    font-size: 8pt;
+    width: 500px;
+}
+
+/* -- report ------------------------------------------------------------------------ */
+#show_detail_line {
+    margin-top: 3ex;
+    margin-bottom: 1ex;
+}
+#result_table {
+    width: 80%;
+    border-collapse: collapse;
+    border: 1px solid #777;
+}
+#header_row {
+    font-weight: bold;
+    color: white;
+    background-color: #777;
+}
+#result_table td {
+    border: 1px solid #777;
+    padding: 2px;
+}
+#total_row  { font-weight: bold; }
+.passClass  { background-color: #6c6; }
+.failClass  { background-color: #c60; }
+.errorClass { background-color: #c00; }
+.passCase   { color: #6c6; }
+.failCase   { color: #c60; font-weight: bold; }
+.errorCase  { color: #c00; font-weight: bold; }
+.hiddenRow  { display: none; }
+.testcase   { margin-left: 2em; }
+
+
+/* -- ending ---------------------------------------------------------------------- */
+#ending {
+}
+
+</style>
+
+</head>
+<body>
+<script language="javascript" type="text/javascript"><!--
+output_list = Array();
+
+/* level - 0:Summary; 1:Failed; 2:All */
+function showCase(level) {
+    trs = document.getElementsByTagName("tr");
+    for (var i = 0; i < trs.length; i++) {
+        tr = trs[i];
+        id = tr.id;
+        if (id.substr(0,2) == 'ft') {
+            if (level < 1) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+        if (id.substr(0,2) == 'pt') {
+            if (level > 1) {
+                tr.className = '';
+            }
+            else {
+                tr.className = 'hiddenRow';
+            }
+        }
+    }
+}
+
+
+function showClassDetail(cid, count) {
+    var id_list = Array(count);
+    var toHide = 1;
+    for (var i = 0; i < count; i++) {
+        tid0 = 't' + cid.substr(1) + '.' + (i+1);
+        tid = 'f' + tid0;
+        tr = document.getElementById(tid);
+        if (!tr) {
+            tid = 'p' + tid0;
+            tr = document.getElementById(tid);
+        }
+        id_list[i] = tid;
+        if (tr.className) {
+            toHide = 0;
+        }
+    }
+    for (var i = 0; i < count; i++) {
+        tid = id_list[i];
+        if (toHide) {
+            document.getElementById('div_'+tid).style.display = 'none'
+            document.getElementById(tid).className = 'hiddenRow';
+        }
+        else {
+            document.getElementById(tid).className = '';
+        }
+    }
+}
+
+
+function showTestDetail(div_id){
+    var details_div = document.getElementById(div_id)
+    var displayState = details_div.style.display
+    // alert(displayState)
+    if (displayState != 'block' ) {
+        displayState = 'block'
+        details_div.style.display = 'block'
+    }
+    else {
+        details_div.style.display = 'none'
+    }
+}
+
+
+function html_escape(s) {
+    s = s.replace(/&/g,'&');
+    s = s.replace(/</g,'<');
+    s = s.replace(/>/g,'>');
+    return s;
+}
+
+/* obsoleted by detail in <div>
+function showOutput(id, name) {
+    var w = window.open("", //url
+                    name,
+                    "resizable,scrollbars,status,width=800,height=450");
+    d = w.document;
+    d.write("<pre>");
+    d.write(html_escape(output_list[id]));
+    d.write("\n");
+    d.write("<a href='javascript:window.close()'>close</a>\n");
+    d.write("</pre>\n");
+    d.close();
+}
+*/
+--></script>
+
+<div class='heading'>
+<h1>Unit Test Report</h1>
+<p class='attribute'><strong>Start Time:</strong> 2018-03-27 18:07:34</p>
+<p class='attribute'><strong>Duration:</strong> 0:01:21.661341</p>
+<p class='attribute'><strong>Status:</strong> Pass 16</p>
+
+<p class='description'></p>
+</div>
+
+
+
+<p id='show_detail_line'>Show
+<a href='javascript:showCase(0)'>Summary</a>
+<a href='javascript:showCase(1)'>Failed</a>
+<a href='javascript:showCase(2)'>All</a>
+</p>
+<table id='result_table'>
+<colgroup>
+<col align='left' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+</colgroup>
+<tr id='header_row'>
+    <td>Test Group/Test case</td>
+    <td>Count</td>
+    <td>Pass</td>
+    <td>Fail</td>
+    <td>Error</td>
+    <td>View</td>
+</tr>
+
+<tr class='passClass'>
+    <td>task.get_document</td>
+    <td>16</td>
+    <td>16</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c1',16)">Detail</a></td>
+</tr>
+
+<tr id='pt1.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_task_0: 分词接口测试 [with data={'plans': '一、Ver.0.1.2\n1、特点\na)...1)分析结果：小明、明天上午3点、（一定要）完成需求评审文档'}]</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.1')" >
+        pass</a>
+
+    <div id='div_pt1.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.1: 接口返回信息为[{'executor': '', 'followers': [], 'head': -1, 'plan': 'Ver.0.1.2', 'time': 0, 'topic': 'Ver.0.1.2'}, {'executor': '', 'followers': [], 'head': 0, 'plan': '特点', 'time': 0, 'topic': '特点'}, {'executor': '', 'followers': [], 'head': 1, 'plan': '主题、时间、人，混在一个句子中', 'time': 0, 'topic': '主题、时间、人，混在一个句子中'}, {'executor': '', 'followers': [], 'head': 1, 'plan': '时间、人带有主题无关修饰语', 'time': 0, 'topic': '时间、人带有主题无关修饰语'}, {'executor': '', 'followers': [], 'head': 1, 'plan': '一句话只包含明确的要做的一件事情，主题明确', 'time': 0, 'topic': '一句话只包含明确的要做的一件事情，主题明确'}, {'executor': '', 'followers': [], 'head': 0, 'plan': '几种典型', 'time': 0, 'topic': '几种典型'}, {'executor': '小明', 'followers': [], 'head': 5, 'plan': '例子：小明，请一定在明天上午3点提交需求评审文档', 'time': 0, 'topic': '一定提交需求评审文档'}, {'executor': '', 'followers': [], 'head': 6, 'plan': '分析结果：小明、明天上午3点、（一定）提交需求评审文档', 'time': 0, 'topic': '分析结果：小明、明天上午3点、（一定）提交需求评审文档'}, {'executor': '小明', 'followers': [], 'head': 5, 'plan': '例子：请通知（让）小明在明天上午3点一定要完成需求评审文档', 'time': 0, 'topic': '（让）一定要完成需求评审文档'}, {'executor': '小明、明天上午3点、（一定要）', 'followers': [], 'head': 8, 'plan': '分析结果：小明、明天上午3点、（一定要）完成需求评审文档', 'time': 0, 'topic': '分析结果：完成需求评审文档'}]
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_task_1: 分词接口测试 [with data={'plans': '工作量评估：\n1. 工作任务非常重，高效...  [ Σ(每日有效工时) / (7.5 * 工作日数量)]'}]</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.2')" >
+        pass</a>
+
+    <div id='div_pt1.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.2: 接口返回信息为[{'executor': '', 'followers': [], 'head': -1, 'plan': '工作量评估：', 'time': 0, 'topic': '工作量评估：'}, {'executor': '', 'followers': [], 'head': 0, 'plan': '工作任务非常重，高效下仍需长期加班，平均每周工作时间超过[55小时以上；', 'time': 0, 'topic': '工作任务非常重，高效下仍需长期加班，平均每周工作时间超过[55小时以上；'}, {'executor': '', 'followers': [], 'head': 0, 'plan': '工作任务较重，需经常加班以完成任务，平均每周工作时间在[45小时, 55小时)之间；', 'time': 0, 'topic': '工作任务较重，需经常加班以完成任务，平均每周工作时间在[45小时, 55小时)之间；'}, {'executor': '', 'followers': [], 'head': 0, 'plan': '基本饱和，偶尔加班即可完成，平均每周工作时间在[40小时, 45小时)之间；', 'time': 0, 'topic': '基本饱和，偶尔加班即可完成，平均每周工作时间在[40小时, 45小时)之间；'}, {'executor': '', 'followers': [], 'head': 0, 'plan': '不完全饱和，少量空闲时间，平均每周工作40小时以下，并且无需加班；', 'time': 0, 'topic': '不完全饱和，少量空闲时间，平均每周工作40小时以下，并且无需加班；'}, {'executor': '', 'followers': [], 'head': 0, 'plan': '饱和度不足60%，平均每周工作35小时以下，还常请假、迟到或早退', 'time': 0, 'topic': '饱和度不足60%，平均每周工作35小时以下，还常请假、迟到或早退'}, {'executor': '', 'followers': [], 'head': 5, 'plan': '= 基准分 *  [ Σ(每日有效工时) / (7.5 * 工作日数量)]', 'time': 0, 'topic': '= 基准分 *  [ Σ(每日有效工时) / (7.5 * 工作日数量)]'}]
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_task_10: 分词接口测试 [with data={'plans': '1、bug数量分=（考勤人数-bug数量排...分\n   未按要求提BUG     不得分    该项5分'}]</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.3')" >
+        pass</a>
+
+    <div id='div_pt1.3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.3: 接口返回信息为[{'executor': '', 'followers': [], 'head': -1, 'plan': 'bug数量分=（考勤人数-bug数量排名+1）/考勤人数*分值分', 'time': 0, 'topic': 'bug数量分=（考勤人数-bug数量排名+1）/考勤人数*分值分'}, {'executor': '', 'followers': [], 'head': 0, 'plan': 'bug数量排名按照bug严重程度加权，其中致命：1.5，严重：1.2，一般1.0，轻微：0.8   该项5分', 'time': 0, 'topic': 'bug数量排名按照bug严重程度加权，其中致命：1.5，严重：1.2，一般1.0，轻微：0.8   该项5分'}, {'executor': '', 'followers': [], 'head': -1, 'plan': 'bug有效分：', 'time': 0, 'topic': 'bug有效分：'}, {'executor': '', 'followers': [], 'head': 2, 'plan': '有效率低于80%   得0分', 'time': 0, 'topic': '有效率低于80%得0分'}, {'executor': '', 'followers': [], 'head': 2, 'plan': '有效率高于80%   得分＝实际有效率/80%*满分值', 'time': 0, 'topic': '有效率高于80%得分＝实际有效率/80%*满分值'}, {'executor': '', 'followers': [], 'head': 2, 'plan': '实际有效率详见禅道项目管理系统（80%为基准分） 该项5分', 'time': 0, 'topic': '实际有效率详见禅道项目管理系统（80%为基准分） 该项5分'}, {'executor': '', 'followers': [], 'head': -1, 'plan': 'bug规范分=直接主管打分', 'time': 0, 'topic': 'bug规范分=直接主管打分'}, {'executor': '', 'followers': [], 'head': 6, 'plan': '严格按规范提BUG   得3分', 'time': 0, 'topic': '严格按规范提BUG得3分'}, {'executor': '', 'followers': [], 'head': 6, 'plan': '基本按照规范提BUG 得2.1分', 'time': 0, 'topic': '基本按照规范提BUG得2.1分'}, {'executor': '', 'followers': [], 'head': 6, 'plan': '未按要求提BUG     不得分    该项5分', 'time': 0, 'topic': '未按要求提BUG不得分该项5分'}]
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_task_11: 分词接口测试 [with data={'plans': '测试用例数量评估：\n1.数量超出部门平均...分值\nN<70% 扣30%分值\nN<80% 扣10%分值'}]</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.4')" >
+        pass</a>
+
+    <div id='div_pt1.4' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.4').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.4: 接口返回信息为[{'executor': '', 'followers': [], 'head': -1, 'plan': '测试用例数量评估：', 'time': 0, 'topic': '测试用例数量评估：'}, {'executor': '', 'followers': [], 'head': 0, 'plan': '数量超出部门平均水平；', 'time': 0, 'topic': '数量超出部门平均水平；'}, {'executor': '', 'followers': [], 'head': 0, 'plan': '数量稍比部门平均水平多一些；', 'time': 0, 'topic': '数量稍比部门平均水平多一些；'}, {'executor': '', 'followers': [], 'head': 0, 'plan': '能按部门经理要求完成相应的数量；（基准分）', 'time': 0, 'topic': '能按部门经理要求完成相应的数量；（基准分）'}, {'executor': '', 'followers': [], 'head': 0, 'plan': '与分配的数量还有一些差距；', 'time': 0, 'topic': '与分配的数量还有一些差距；'}, {'executor': '', 'followers': [], 'head': 0, 'plan': '没有达到分配的数量要求。', 'time': 0, 'topic': '没有达到分配的数量要求'}, {'executor': '', 'followers': [], 'head': -1, 'plan': '测试用例效率评估：', 'time': 0, 'topic': '测试用例效率评估：'}, {'executor': '', 'followers': ['测试计划得满分'], 'head': 6, 'plan': '速度领先于测试计划                得满分', 'time': 0, 'topic': '速度领先于测试计划得满分'}, {'executor': '', 'followers': [], 'head': 6, 'plan': '速度在测试计划内正常完成          得基准分', 'time': 0, 'topic': '速度在测试计划内正常完成得基准分'}, {'executor': '', 'followers': [], 'head': 6, 'plan': '速度未能按要求在测试计划内完成    不得分', 'time': 0, 'topic': '速度未能按要求在测试计划内完成不得分'}, {'executor': '', 'followers': [], 'head': -1, 'plan': '注：必须本季度的所有测试用例效率都领先才可得到对应的分数，例如：本季度测试5单需求，其中5单需求测试用例全部领先于测试计划完成编写，则得5分。其中有4次领先完成，1次计划时间点完成，则得下一级分值即基准分2.8分。以此类推。', 'time': 0, 'topic': '注：必须本季度的所有测试用例效率都领先才可得到对应的分数，例如：本季度测试5单需求，其中5单需求测试用例全部领先于测试计划完成编写，则得5分。其中有4次领先完成，1次计划时间点完成，则得下一级分值即基准分2.8分。以此类推'}, {'executor': '', 'followers': [], 'head': -1, 'plan': '测试用例质量评估：', 'time': 0, 'topic': '测试用例质量评估：'}, {'executor': '', 'followers': [], 'head': -1, 'plan': '覆盖率高，测试场景（正常、异常）、逻辑分支均有覆盖到；', 'time': 0, 'topic': '覆盖率高，测试场景（正常、异常）、逻辑分支均有覆盖到；'}, {'executor': '', 'followers': [], 'head': -1, 'plan': '逻辑性高，按照正常流程分支，不过度跳跃；', 'time': 0, 'topic': '逻辑性高，按照正常流程分支，不过度跳跃；'}, {'executor': '', 'followers': [], 'head': -1, 'plan': '可读性强，每一步骤详细说明，预期结果无遗漏，达到其他人看测试用例即可无障碍执行的程度。', 'time': 0, 'topic': '可读性强，每一步骤详细说明，预期结果无遗漏，达到其他人看测试用例即可无障碍执行的程度'}, {'executor': '', 'followers': [], 'head': -1, 'plan': 'N=[1-（有问题的用例条数+遗漏的用例数）/用例总条数]*100%', 'time': 0, 'topic': 'N=[1-（有问题的用例条数+遗漏的用例数）/用例总条数]*100%'}, {'executor': '', 'followers': [], 'head': -1, 'plan': 'N&lt;0 计0分', 'time': 0, 'topic': 'N&lt;0计0分'}, {'executor': '', 'followers': [], 'head': -1, 'plan': 'N&lt;50% 扣50%分值', 'time': 0, 'topic': 'N&lt;50%扣50%分值'}, {'executor': '', 'followers': [], 'head': -1, 'plan': 'N&lt;70% 扣30%分值', 'time': 0, 'topic': 'N&lt;70%扣30%分值'}, {'executor': '', 'followers': [], 'head': -1, 'plan': 'N&lt;80% 扣10%分值', 'time': 0, 'topic': 'N&lt;80%扣10%分值'}]
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_task_12: 分词接口测试 [with data={'plans': '本项报告包括测试报告、周报、日报等各种测试...报告，或报告无法正常阅读：0分   \n处于3的情况得基准分'}]</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.5')" >
+        pass</a>
+
+    <div id='div_pt1.5' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.5').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.5: 接口返回信息为[{'executor': '', 'followers': [], 'head': -1, 'plan': '本项报告包括测试报告、周报、日报等各种测试过程文件：', 'time': 0, 'topic': '本项报告包括测试报告、周报、日报等各种测试过程文件：'}, {'executor': '', 'followers': [], 'head': 0, 'plan': '报告及时、准确、清晰、规范、有效识别问题的关键功能和性能，有准确的测试质量评价标准和结论，无错别字：8分', 'time': 0, 'topic': '报告及时、准确、清晰、规范、有效识别问题的关键功能和性能，有准确的测试质量评价标准和结论，无错别字：8分'}, {'executor': '', 'followers': [], 'head': 0, 'plan': '报告及时、准确、清晰、规范，能基本描述关键功能测试结果，有测试质量评价标准和结论，有少量无歧义性错别字：7分', 'time': 0, 'topic': '报告及时、准确、清晰、规范，能基本描述关键功能测试结果，有测试质量评价标准和结论，有少量无歧义性错别字：7分'}, {'executor': '', 'followers': [], 'head': 0, 'plan': '报告及时、规范，描述详细和覆盖全面要点，能指出关键问题，有测试结论：5分', 'time': 0, 'topic': '报告及时、规范，描述详细和覆盖全面要点，能指出关键问题，有测试结论：5分'}, {'executor': '', 'followers': [], 'head': 0, 'plan': '报告有稍微延迟，不能准确地识别问题，有较多错别字，无明确的测试结论：3分', 'time': 0, 'topic': '报告有稍微延迟，不能准确地识别问题，有较多错别字，无明确的测试结论：3分'}, {'executor': '', 'followers': [], 'head': 0, 'plan': '经常不写报告，或经常延迟2天及以上提交报告：1分', 'time': 0, 'topic': '经常不写报告，或经常延迟2天及以上提交报告：1分'}, {'executor': '', 'followers': [], 'head': 0, 'plan': '不写报告，或报告无法正常阅读：0分', 'time': 0, 'topic': '不写报告，或报告无法正常阅读：0分'}, {'executor': '', 'followers': [], 'head': -1, 'plan': '处于3的情况得基准分', 'time': 0, 'topic': '处于3的情况得基准分'}]
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_task_13: 分词接口测试 [with data={'plans': '考核项目:\n处于3这一层次得基准分，考核...实地面对日常工作；\n1分：通过正确途径表达个人情绪；"\n'}]</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.6')" >
+        pass</a>
+
+    <div id='div_pt1.6' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.6').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.6: 接口返回信息为出错了，错误是Expecting value: line 1 column 1 (char 0)
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.7' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_task_14: 分词接口测试 [with data={'plans': '人均工作量评估：\n1. 工作任务非常重，...  [ Σ(每日有效工时) / (7.5 * 工作日数量)]'}]</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.7')" >
+        pass</a>
+
+    <div id='div_pt1.7' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.7').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.7: 接口返回信息为[{'executor': '', 'followers': [], 'head': -1, 'plan': '人均工作量评估：', 'time': 0, 'topic': '人均工作量评估：'}, {'executor': '', 'followers': [], 'head': 0, 'plan': '工作任务非常重，高效下仍需长期加班，平均每周工作时间超过[55小时以上；', 'time': 0, 'topic': '工作任务非常重，高效下仍需长期加班，平均每周工作时间超过[55小时以上；'}, {'executor': '', 'followers': [], 'head': 0, 'plan': '工作任务较重，需经常加班以完成任务，平均每周工作时间在[48小时, 55小时)之间；', 'time': 0, 'topic': '工作任务较重，需经常加班以完成任务，平均每周工作时间在[48小时, 55小时)之间；'}, {'executor': '', 'followers': [], 'head': 0, 'plan': '基本饱和，偶尔加班即可完成，平均每周工作时间在[40小时, 45小时)之间；', 'time': 0, 'topic': '基本饱和，偶尔加班即可完成，平均每周工作时间在[40小时, 45小时)之间；'}, {'executor': '', 'followers': [], 'head': 0, 'plan': '不完全饱和，少量空闲时间，平均每周工作40小时以下，并且无需加班；', 'time': 0, 'topic': '不完全饱和，少量空闲时间，平均每周工作40小时以下，并且无需加班；'}, {'executor': '', 'followers': [], 'head': 0, 'plan': '饱和度不足60%，平均每周工作35小时以下，还常请假、迟到或早退', 'time': 0, 'topic': '饱和度不足60%，平均每周工作35小时以下，还常请假、迟到或早退'}, {'executor': '', 'followers': [], 'head': 5, 'plan': '= 基准分 *  [ Σ(每日有效工时) / (7.5 * 工作日数量)]', 'time': 0, 'topic': '= 基准分 *  [ Σ(每日有效工时) / (7.5 * 工作日数量)]'}]
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.8' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_task_15: 分词接口测试 [with data={'plans': '需求对应的测试用例数(正常流程)（n）转自...满分的80%\n4)0.5< M/N  <1     得满分'}]</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.8')" >
+        pass</a>
+
+    <div id='div_pt1.8' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.8').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.8: 接口返回信息为[{'executor': '', 'followers': [], 'head': -1, 'plan': '需求对应的测试用例数(正常流程)（n）转自动化测试用例数（m）的转换比重（M/N）：', 'time': 0, 'topic': '需求对应的测试用例数(正常流程)（n）转自动化测试用例数（m）的转换比重（M/N）：'}, {'executor': '', 'followers': [], 'head': 0, 'plan': '0  &lt; M/N  &lt;0.2   得基准分的50%', 'time': 0, 'topic': '0  &lt; M/N  &lt;0.2   得基准分的50%'}, {'executor': '', 'followers': [], 'head': 0, 'plan': '0.2&lt; M/N  &lt;0.3   得基准分', 'time': 0, 'topic': '0.2&lt; M/N  &lt;0.3   得基准分'}, {'executor': '', 'followers': [], 'head': 0, 'plan': '0.3&lt; M/N  &lt;0.4   得满分的80%', 'time': 0, 'topic': '0.3&lt; M/N  &lt;0.4   得满分的80%'}, {'executor': '', 'followers': [], 'head': 0, 'plan': '0.5&lt; M/N  &lt;1     得满分', 'time': 0, 'topic': '0.5&lt; M/N  &lt;1     得满分'}]
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.9' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_task_2: 分词接口测试 [with data={'plans': '项目管理规范\n1、严格按照测试流程、体系...。\n3、未按规范执行的，不得分。\n注：需提供实例。"\n'}]</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.9')" >
+        pass</a>
+
+    <div id='div_pt1.9' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.9').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.9: 接口返回信息为[{'executor': '', 'followers': [], 'head': -1, 'plan': '项目管理规范', 'time': 0, 'topic': '项目管理规范'}, {'executor': '', 'followers': [], 'head': 0, 'plan': '严格按照测试流程、体系以及项目管理流程执行测试，不同阶段有对应的产物输出（保证质量）。       得满分。', 'time': 0, 'topic': '严格按照测试流程、体系以及项目管理流程执行测试，不同阶段有对应的产物输出（保证质量）。       得满分。'}, {'executor': '', 'followers': [], 'head': 0, 'plan': '部分按照测试流程、体系以及项目管理流程执行测试，不同阶段部分有对应的产物输出。   得基准分。', 'time': 0, 'topic': '部分按照测试流程、体系以及项目管理流程执行测试，不同阶段部分有对应的产物输出。   得基准分。'}, {'executor': '', 'followers': [], 'head': 0, 'plan': '未按规范执行的，不得分。', 'time': 0, 'topic': '未按规范执行的，不得分'}, {'executor': '', 'followers': [], 'head': -1, 'plan': '注：需提供实例。"', 'time': 0, 'topic': '注：需提供实例。"'}]
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.10' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_task_3: 分词接口测试 [with data={'plans': 'ID\t模块\t    功能点\t    ...务\t\n10\t\t        添加一条父任务@人\n'}]</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.10')" >
+        pass</a>
+
+    <div id='div_pt1.10' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.10').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.10: 接口返回信息为[{'executor': '', 'followers': [], 'head': -1, 'plan': '模块\t    功能点\t              测试结果', 'time': 0, 'topic': '模块\t    功能点\t              测试结果'}, {'executor': '', 'followers': [], 'head': 0, 'plan': '登录\t    新用户登录', 'time': 0, 'topic': '登录新用户登录'}, {'executor': '', 'followers': [], 'head': 0, 'plan': '老用户登录', 'time': 0, 'topic': '老用户登录'}, {'executor': '', 'followers': [], 'head': 0, 'plan': '创建圈子\t新用户创建圈子', 'time': 0, 'topic': '创建圈子新用户创建圈子'}, {'executor': '', 'followers': [], 'head': 0, 'plan': '扫码进入工作圈', 'time': 0, 'topic': '扫码进入工作圈'}, {'executor': '', 'followers': [], 'head': 0, 'plan': '圈子名称编辑', 'time': 0, 'topic': '圈子名称编辑'}, {'executor': '', 'followers': [], 'head': 0, 'plan': '圈子置顶', 'time': 0, 'topic': '圈子置顶'}, {'executor': '', 'followers': [], 'head': 0, 'plan': '邀请人进入圈子', 'time': 0, 'topic': '邀请人进入圈子'}, {'executor': '', 'followers': [], 'head': 0, 'plan': '解散圈子', 'time': 0, 'topic': '解散圈子'}, {'executor': '', 'followers': [], 'head': 0, 'plan': '添加父任务\t添加一条父任务', 'time': 0, 'topic': '添加父任务添加一条父任务'}, {'executor': '', 'followers': [], 'head': 0, 'plan': '添加一条父任务@人', 'time': 0, 'topic': '添加一条父任务@人'}]
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.11' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_task_4: 分词接口测试 [with data={'plans': '我整理的你的给我曾经写过的， 但是不知道为...醒（到期前一小时，自动提醒）、任务提醒（用户设置）、删除任务'}]</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.11')" >
+        pass</a>
+
+    <div id='div_pt1.11' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.11').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.11: 接口返回信息为[{'executor': '', 'followers': [], 'head': -1, 'plan': '我整理的你的给我曾经写过的， 但是不知道为什么还是没有上线截止时间到期提醒', 'time': 0, 'topic': '我整理的你的给我曾经写过的，但是不知道为什么还是没有上线截止时间到期提醒'}, {'executor': '', 'followers': [], 'head': 0, 'plan': '接受消息的种类分成如下几种：', 'time': 0, 'topic': '接受消息的种类分成如下几种：'}, {'executor': '', 'followers': [], 'head': -1, 'plan': '系统消息：加入工作圈', 'time': 0, 'topic': '系统消息：加入工作圈'}, {'executor': '', 'followers': [], 'head': -1, 'plan': '任务消息：设定执行者、执行者修改、修改截止时间、添加关注者、任务标题修改、任务完成状态、任务评论、任务即将到期提醒（自动）、任务提醒（用户设置）、删除任务', 'time': 0, 'topic': '任务消息：设定执行者、执行者修改、修改截止时间、添加关注者、任务标题修改、任务完成状态、任务评论、任务即将到期提醒（自动）、任务提醒（用户设置）、删除任务'}, {'executor': '', 'followers': [], 'head': 3, 'plan': '可以设置接受哪些类型的消息，默认选择：', 'time': 0, 'topic': '可以设置接受哪些类型的消息，默认选择：'}, {'executor': '', 'followers': [], 'head': -1, 'plan': '设定执行者、执行者修改、任务评论、任务即将到期提醒（到期前一小时，自动提醒）、任务提醒（用户设置）、删除任务', 'time': 0, 'topic': '设定执行者、执行者修改、任务评论、任务即将到期提醒（到期前一小时，自动提醒）、任务提醒（用户设置）、删除任务'}]
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.12' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_task_5: 分词接口测试 [with data={'plans': '接口，无论小程序还是PC，用户在一个工作圈...管理员\n管理员可以事后进行用户组管理，添加或者移除组内用户'}]</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.12')" >
+        pass</a>
+
+    <div id='div_pt1.12' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.12').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.12: 接口返回信息为[{'executor': '', 'followers': [], 'head': -1, 'plan': '接口，无论小程序还是PC，用户在一个工作圈中能看到的成员增加规则限制，详细参考任务描述', 'time': 0, 'topic': '接口，无论小程序还是PC，用户在一个工作圈中能看到的成员增加规则限制，详细参考任务描述'}, {'executor': '', 'followers': [], 'head': 0, 'plan': '工作圈成员角色分成普通成员、管理员', 'time': 0, 'topic': '工作圈成员角色分成普通成员、管理员'}, {'executor': '', 'followers': [], 'head': -1, 'plan': '创建者即为管理员', 'time': 0, 'topic': '创建者即为管理员'}, {'executor': '', 'followers': [], 'head': 2, 'plan': '可以设置某个成员为管理员', 'time': 0, 'topic': '可以设置某个成员为管理员'}, {'executor': '', 'followers': [], 'head': 2, 'plan': '管理员可视范围（任务、人员）不受限制', 'time': 0, 'topic': '管理员可视范围（任务、人员）不受限制'}, {'executor': '', 'followers': [], 'head': 2, 'plan': '普通成员能看到的任务只限于我的任务、我跟进的任务', 'time': 0, 'topic': '普通成员能看到的任务只限于我的任务、我跟进的任务'}, {'executor': '', 'followers': [], 'head': 2, 'plan': '普通成员能看到的人员', 'time': 0, 'topic': '普通成员能看到的人员'}, {'executor': '', 'followers': [], 'head': 6, 'plan': '和自己是来源于同一个群的其他成员', 'time': 0, 'topic': '和自己是来源于同一个群的其他成员'}, {'executor': '', 'followers': [], 'head': 6, 'plan': '管理员', 'time': 0, 'topic': '管理员'}, {'executor': '', 'followers': [], 'head': -1, 'plan': '关于用户组管理：', 'time': 0, 'topic': '关于用户组管理：'}, {'executor': '', 'followers': [], 'head': -1, 'plan': '用户通过群进入工作圈，自动会加入与该群有关联的一个用户组', 'time': 0, 'topic': '用户通过群进入工作圈，自动会加入与该群有关联的一个用户组'}, {'executor': '', 'followers': [], 'head': -1, 'plan': '该组内用户互相可见', 'time': 0, 'topic': '该组内用户互相可见'}, {'executor': '', 'followers': ['自己和管理员'], 'head': -1, 'plan': '如果是单独邀请的个人用户，则不属于任何用户组，只能看到自己和管理员', 'time': 0, 'topic': '如果是单独邀请的个人用户，则不属于任何用户组，只能看到自己和管理员'}, {'executor': '', 'followers': [], 'head': -1, 'plan': '管理员可以事后进行用户组管理，添加或者移除组内用户', 'time': 0, 'topic': '管理员可以进行用户组管理，添加或者移除组内用户'}]
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.13' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_task_6: 分词接口测试 [with data={'plans': '后台，公众号消息、服务通知消息的再整理\n...醒（到期前一小时，自动提醒）、任务提醒（用户设置）、删除任务'}]</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.13')" >
+        pass</a>
+
+    <div id='div_pt1.13' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.13').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.13: 接口返回信息为[{'executor': '', 'followers': [], 'head': -1, 'plan': '后台，公众号消息、服务通知消息的再整理', 'time': 0, 'topic': ''}, {'executor': '', 'followers': [], 'head': 0, 'plan': '公众号消息、服务通知消息的种类保持一致', 'time': 0, 'topic': '公众号消息、服务通知消息的种类保持一致'}, {'executor': '', 'followers': [], 'head': 0, 'plan': '接受消息的种类分成如下几种：', 'time': 0, 'topic': '接受消息的种类分成如下几种：'}, {'executor': '', 'followers': [], 'head': -1, 'plan': '系统消息：加入工作圈', 'time': 0, 'topic': '系统消息：加入工作圈'}, {'executor': '', 'followers': [], 'head': -1, 'plan': '任务消息：设定执行者、执行者修改、修改截止时间、添加关注者、任务标题修改、任务完成状态、任务评论、任务即将到期提醒（自动）、任务提醒（用户设置）、删除任务', 'time': 0, 'topic': '任务消息：设定执行者、执行者修改、修改截止时间、添加关注者、任务标题修改、任务完成状态、任务评论、任务即将到期提醒（自动）、任务提醒（用户设置）、删除任务'}, {'executor': '', 'followers': [], 'head': 4, 'plan': '可以设置接受哪些类型的消息，默认选择：', 'time': 0, 'topic': '可以设置接受哪些类型的消息，默认选择：'}, {'executor': '', 'followers': [], 'head': -1, 'plan': '设定执行者、执行者修改、任务评论、任务即将到期提醒（到期前一小时，自动提醒）、任务提醒（用户设置）、删除任务', 'time': 0, 'topic': '设定执行者、执行者修改、任务评论、任务即将到期提醒（到期前一小时，自动提醒）、任务提醒（用户设置）、删除任务'}]
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.14' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_task_7: 分词接口测试 [with data={'plans': 'PC，任务描述及评论增加MarkDown支...包含有\n粗体、斜体、引用、代码、链接、图片、标题H1-H6'}]</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.14')" >
+        pass</a>
+
+    <div id='div_pt1.14' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.14').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.14: 接口返回信息为[{'executor': '', 'followers': [], 'head': -1, 'plan': '任务描述及评论增加MarkDown支持。主要包含有', 'time': 0, 'topic': '任务描述及评论增加MarkDown支持。主要包含有'}, {'executor': '', 'followers': [], 'head': 0, 'plan': '粗体、斜体、引用、代码、链接、图片、标题H1-H6', 'time': 0, 'topic': '粗体、斜体、引用、代码、链接、图片、标题H1-H6'}]
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.15' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_task_8: 分词接口测试 [with data={'plans': '任务达成率评估：\n1. 远远领先于测试计... 实际交付时间) ／ (计划交付时间 - 计划开始时间) ]'}]</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.15')" >
+        pass</a>
+
+    <div id='div_pt1.15' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.15').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.15: 接口返回信息为[{'executor': '', 'followers': [], 'head': -1, 'plan': '任务达成率评估：', 'time': 0, 'topic': '任务达成率评估：'}, {'executor': '', 'followers': [], 'head': 0, 'plan': '远远领先于测试计划；', 'time': 0, 'topic': '远远领先于测试计划；'}, {'executor': '', 'followers': [], 'head': 0, 'plan': '略微领先于测试计划；', 'time': 0, 'topic': '略微领先于测试计划；'}, {'executor': '', 'followers': [], 'head': 0, 'plan': '完全符合测试计划；', 'time': 0, 'topic': '完全符合测试计划；'}, {'executor': '', 'followers': [], 'head': 0, 'plan': '明显与计划有出入；', 'time': 0, 'topic': '明显与计划有出入；'}, {'executor': '', 'followers': [], 'head': 0, 'plan': '测试进度失控。 按时交付得基准分，延迟40%以上得0分。', 'time': 0, 'topic': '测试进度失控。按时交付得基准分，延迟40%以上得0分'}, {'executor': '', 'followers': [], 'head': 5, 'plan': '= 基准分 * [  1 + (计划交付时间 - 实际交付时间) ／ (计划交付时间 - 计划开始时间) ]', 'time': 0, 'topic': '= 基准分 * [  1 + (计划交付时间 - 实际交付时间) ／ (计划交付时间 - 计划开始时间) ]'}]
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.16' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_task_9: 分词接口测试 [with data={'plans': '生产故障次数扣分规则：\n无任何生产故障 ...\n注：扣完为止。 例如：出现1级生产故障2次，则为0分。 '}]</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.16')" >
+        pass</a>
+
+    <div id='div_pt1.16' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.16').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.16: 接口返回信息为[{'executor': '', 'followers': [], 'head': -1, 'plan': '生产故障次数扣分规则：', 'time': 0, 'topic': '生产故障次数扣分规则：'}, {'executor': '', 'followers': [], 'head': -1, 'plan': '无任何生产故障         满分', 'time': 0, 'topic': '无任何生产故障         满分'}, {'executor': '', 'followers': [], 'head': -1, 'plan': '出现1级生产故障一次    扣50%分值分（满分）', 'time': 0, 'topic': '出现1级生产故障一次扣50%分值分（满分）'}, {'executor': '', 'followers': [], 'head': -1, 'plan': '出现2级BUG一次        扣30%分值分（基准分）', 'time': 0, 'topic': '出现2级BUG一次扣30%分值分（基准分）'}, {'executor': '', 'followers': [], 'head': -1, 'plan': '出现3级BUG一次        扣10%分值分（基准分）', 'time': 0, 'topic': '出现3级BUG一次扣10%分值分（基准分）'}, {'executor': '', 'followers': [], 'head': -1, 'plan': '注：扣完为止', 'time': 0, 'topic': '注：扣完为止'}, {'executor': '', 'followers': [], 'head': -1, 'plan': ' 例如：出现1级生产故障2次，则为0分', 'time': 0, 'topic': '例如：出现1级生产故障2次，则为0分'}]
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='total_row'>
+    <td>Total</td>
+    <td>16</td>
+    <td>16</td>
+    <td>0</td>
+    <td>0</td>
+    <td> </td>
+</tr>
+</table>
+
+<div id='ending'> </div>
+
+</body>
+</html>

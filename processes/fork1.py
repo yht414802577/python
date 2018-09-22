@@ -8,7 +8,7 @@ def parent():
         if newpid == 0:
             child()
         else:
-            print('hello from parent', os.getpid() , newpid)
+            print('hello from parent', os.getpid(), newpid)
         if input() == 'q':
             break
 
