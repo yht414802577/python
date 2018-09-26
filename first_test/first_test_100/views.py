@@ -1,8 +1,9 @@
 from django.shortcuts import render,HttpResponse
+from . import models
 
 # Create your views here.
 
-def index(request):
+def table(request):
     #DakotaRiceSalary = 36,738
     # MinervaHooperSalary = 23,789
     date_ = {
@@ -18,3 +19,34 @@ def index(request):
         'infortest':date_,
     }
     return render(request,'html/table.html',context)
+
+def dashboard(request):
+    return render(request, 'html/dashboard.html')
+
+def icons(request):
+    return render(request, 'html/icons.html')
+
+def maps(request):
+    return render(request, 'html/maps.html')
+
+def notifications(request):
+    return render(request, 'html/notifications.html')
+
+def template(request):
+    return render(request, 'html/template.html')
+
+def typography(request):
+    return render(request,'html/typography.html')
+
+def upgrade(request):
+    return render(request,'html/upgrade.html')
+
+def user(request):
+    if request.method == "GET":
+        return render(request,'html/user.html')
+    elif request.method == "POST":
+        data = request.POST
+        print(dir(data))
+        post_company = request.POST.get('company')
+
+        return register(request)
