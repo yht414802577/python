@@ -47,6 +47,15 @@ def user(request):
     elif request.method == "POST":
         data = request.POST
         print(dir(data))
-        post_company = request.POST.get('company')
 
-        return register(request)
+        post_company = request.POST.get('company')
+        post_username = request.POST.get('username')
+        post_emailaddress = request.POST.get('emailaddress')
+        post_firstname = request.POST.get('firstname')
+        post_lastname = request.POST.get('lastname')
+        post_address = request.POST.get('address')
+        post_city = request.POST.get('city')
+        post_country = request.POST.get('country')
+        post_postalcode = request.POST.get('postalcode')
+
+        return render(request)

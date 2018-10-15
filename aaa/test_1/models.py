@@ -15,3 +15,17 @@ class Money(models.Model):
 	TotalSales = models.CharField(max_length=10)
 	TodayProfit = models.CharField(max_length=10)
 	NewInvoice = models.CharField(max_length=10)
+
+class people(models.Model):
+    company = models.CharField(max_length=10)
+    username = models.CharField(max_length=10)
+    emailaddress = models.CharField(max_length=10)
+    firstname = models.CharField(max_length=10)
+    lastname = models.CharField(max_length=10)
+    address = models.CharField(max_length=10)
+    city = models.CharField(max_length=10)
+    country = models.CharField(max_length=10)
+    postalcode = models.CharField(max_length=10)
+
+
+    
