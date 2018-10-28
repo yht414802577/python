@@ -7,6 +7,10 @@
 import os, sys
 
 class FileVisitor:
+    """
+    访问startDir（默认为'.）下所有非目录文件，可通过重载visit*方法定制文件/目录处理器；情境参数/属性为可选的子类特异的状态；
+    追踪开光：0代表关闭、1代表显示目录、2代表显示目录及文件
+    """
     def __init__(self, cobtext=None, trace=2):
         self.fcount = 0
         self.dcount = 0
@@ -36,6 +40,11 @@ class FileVisitor:
             print(self.fcount, '=>', filepath)
 
 class SearchVisitor(FileVisitor):
+    """
+    在startDir及其子目录下的文件中搜索字符串；
+    子类：根据需要重新定义visitmatch，扩展列表和候选；
+    子类可以使用testexts来指定进行搜索的文件类型（还可以重定义候选以对文本内容使用mimetypes：参考之前相关部分
+    """
     shipexts = []
     testexts = ['.txt', '.py', '.pyw', '.html', '.c', '.h']
 
