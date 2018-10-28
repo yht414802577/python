@@ -1,6 +1,8 @@
 # encoding: utf-8
 """
-@version:??
+@version:删除目录树中所有的.pyc字节码文件，
+        如果给出命令行参数则将其作为根目录
+        否则将当前工作目录作为根目录
 @author:df
 """
 
