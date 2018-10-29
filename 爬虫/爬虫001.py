@@ -4,13 +4,15 @@
 @author:df
 """
 
-from urllib.request import urlopen
 from urllib.error import URLError, HTTPError
+from urllib import request
 
-def download(url, num_retries=2):
+def download(url, num_retries=2, user_agent='wswp'):
     print('Download:', url)
+    header = {'User-agent': user_agent}
+    requests = request.Request(url, headers=header)
     try:
-        html = urlopen(url).read()
+        html = request.urlopen(requests).read()
     except HTTPError as a:
         print('Download error:', a.reason)
         html = None
