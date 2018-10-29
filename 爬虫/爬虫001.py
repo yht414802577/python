@@ -6,6 +6,19 @@
 
 from urllib.error import URLError, HTTPError
 from urllib import request
+import re
+
+def crawl_sitemap(url):
+    """
+    每个站点都可以依靠Sitemap文件来爬取站点中的每个网页。有些站点可能根本就没有 Sitemap文件
+    目标网站的 robots.txt 文件中发现了网站地图（Sitemap.xml 文件），网站地图中包含了这个站点里面所有网页的URL。
+    想要下载目标网站里面的所有网页，我们可以通过一个简单的正则表达式来解析网站地图（Sitemap.xml 文件）。如何解析？很简单，只需要从<loc>标签中提取出 URL 即可
+    """
+    sitemap = download(url)
+    links = re.findall('<loc>(.*?)</loc>', sitemap) #findall() 函数是找到所有符合条件的Str字符串。<loc>(.*?)</loc>指的是：(.*?) 意思是：匹配所有<loc>(xxxx)</loc> 这样字符串，并将括号内的数据作为结果返回。
+
+    for link in links:
+        html = download(link)
 
 def download(url, num_retries=2, user_agent='wswp'):
     print('Download:', url)
