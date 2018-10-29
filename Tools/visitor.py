@@ -14,7 +14,7 @@ class FileVisitor:
     def __init__(self, cobtext=None, trace=2):
         self.fcount = 0
         self.dcount = 0
-        self.conttext = conttext
+        self.context = context
         self.trace = trace
 
     def run(self, startDir=os.curdir, reset=True):
@@ -80,7 +80,7 @@ if __name__ == '__main__':
     donext = 4
 
     def selftest(testmask):
-        if testmask & dolit:
+        if testmask & dolist:
             vistor = FileVisitor(trace=2)
             vistor.run(sys.argv[2])
             print('Visited %d files and %d dirs' %(visitor.fcount, visitor.dcount))
