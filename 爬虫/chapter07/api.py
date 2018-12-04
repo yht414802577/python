@@ -13,7 +13,7 @@ from form import register
 
 def main(api_key, filename):
     captcha = CaptchaAPI(api_key)
-    print register('Test Account', 'Test Account', 'example@webscraping.com', 'example', captcha.solve)
+    print(register('Test Account', 'Test Account', 'example@webscraping.com', 'example', captcha.solve))
 
 
 class CaptchaError(Exception):
@@ -45,16 +45,16 @@ class CaptchaAPI:
                     if text == 'ERROR NO USER':
                         raise CaptchaError('Error: no user available to solve CAPTCHA')
                     else:
-                        print 'CAPTCHA solved!'
+                        print('CAPTCHA solved!')
                         return text
-            print 'Waiting for CAPTCHA ...'
+            print('Waiting for CAPTCHA ...')
         raise CaptchaError('Error: API timeout')
 
 
     def send(self, img_data):
         """Send CAPTCHA for solving
         """
-        print 'Submitting CAPTCHA'
+        print('Submitting CAPTCHA')
         data = {
             'action': 'usercaptchaupload',
             'apikey': self.api_key,
@@ -100,6 +100,6 @@ if __name__ == '__main__':
         api_key = sys.argv[1]
         filename = sys.argv[2]
     except IndexError:
-        print 'Usage: %s <API key> <Image filename>' % sys.argv[0]
+        print('Usage: %s <API key> <Image filename>' % sys.argv[0])
     else:
         main(api_key, filename)
