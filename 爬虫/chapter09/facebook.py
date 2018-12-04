@@ -26,6 +26,6 @@ if __name__ == '__main__':
         password = sys.argv[2]
         url = sys.argv[3]
     except IndexError:
-        print 'Usage: %s <username> <password> <url>' % sys.argv[0]
+        print('Usage: %s <username> <password> <url>' % sys.argv[0])
     else:
         facebook(username, password, url)
