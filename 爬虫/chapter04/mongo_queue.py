@@ -88,7 +88,7 @@ class MongoQueue:
             update={'$set': {'status': self.OUTSTANDING}}
         )
         if record:
-            print 'Released:', record['_id']
+            print('Released:', record['_id'])
 
     def clear(self):
         self.db.crawl_queue.drop()

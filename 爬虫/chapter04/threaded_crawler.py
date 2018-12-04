@@ -30,7 +30,7 @@ def threaded_crawler(seed_url, delay=5, cache=None, scrape_callback=None, user_a
                     try:
                         links = scrape_callback(url, html) or []
                     except Exception as e:
-                        print 'Error in callback for: {}: {}'.format(url, e)
+                        print('Error in callback for: {}: {}'.format(url, e))
                     else:
                         for link in links:
                             link = normalize(seed_url, link)
