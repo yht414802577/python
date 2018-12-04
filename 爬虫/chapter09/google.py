@@ -25,4 +25,4 @@ if __name__ == '__main__':
         keyword = sys.argv[1]
     except IndexError:
         keyword = 'test'
-    print search(keyword)
+    print(search(keyword))
