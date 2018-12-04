@@ -13,7 +13,7 @@ def scrape_callback(url, html):
     if re.search('/view/', url):
         tree = lxml.html.fromstring(html)
         row = [tree.cssselect('table > tr#places_{}__row > td.w2p_fw'.format(field))[0].text_content() for field in FIELDS]
-        print url, row
+        print(url, row)
 
 
 if __name__ == '__main__':
