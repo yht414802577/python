@@ -32,7 +32,7 @@ def threaded_crawler(seed_url, delay=5, cache=None, scrape_callback=None, user_a
                     try:
                         links = scrape_callback(url, html) or []
                     except Exception as e:
-                        print 'Error in callback for: {}: {}'.format(url, e)
+                        print('Error in callback for: {}: {}'.format(url, e))
                     else:
                         for link in links:
                             # add this new link to queue
@@ -58,7 +58,7 @@ def threaded_crawler(seed_url, delay=5, cache=None, scrape_callback=None, user_a
 def process_crawler(args, **kwargs):
     num_cpus = multiprocessing.cpu_count()
     #pool = multiprocessing.Pool(processes=num_cpus)
-    print 'Starting {} processes'.format(num_cpus)
+    print('Starting {} processes'.format(num_cpus))
     processes = []
     for i in range(num_cpus):
         p = multiprocessing.Process(target=threaded_crawler, args=[args], kwargs=kwargs)

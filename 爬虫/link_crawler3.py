@@ -12,8 +12,7 @@ import robotparser
 import Queue
 
 
-def link_crawler(seed_url, link_regex=None, delay=5, max_depth=-1, max_urls=-1, headers=None, user_agent='wswp',
-                 proxy=None, num_retries=1):
+def link_crawler(seed_url, link_regex=None, delay=5, max_depth=-1, max_urls=-1, headers=None, user_agent='wswp',proxy=None, num_retries=1):
     """Crawl from the given seed URL following links matched by link_regex
     """
     # the queue of URL's that still need to be crawled
@@ -58,8 +57,8 @@ def link_crawler(seed_url, link_regex=None, delay=5, max_depth=-1, max_urls=-1, 
             if num_urls == max_urls:
                 break
         else:
-            print
-            'Blocked by robots.txt:', url
+            print('Blocked by robots.txt:', url)
+
 
 
 class Throttle:
@@ -84,8 +83,9 @@ class Throttle:
 
 
 def download(url, headers, proxy, num_retries, data=None):
-    print
-    'Downloading:', url
+
+    print('Downloading:', url)
+
     request = urllib2.Request(url, data, headers)
     opener = urllib2.build_opener()
     if proxy:
@@ -96,8 +96,9 @@ def download(url, headers, proxy, num_retries, data=None):
         html = response.read()
         code = response.code
     except urllib2.URLError as e:
-        print
-        'Download error:', e.reason
+
+        print('Download error:', e.reason)
+
         html = ''
         if hasattr(e, 'code'):
             code = e.code
@@ -145,6 +146,5 @@ if __name__ == '__main__':
 
     link_crawler('http://example.webscraping.com', '/(index|view)', delay=0, num_retries=1, max_depth=1,user_agent='GoodCrawler')
 
-    link_crawler('http://example.webscraping.com', '/(index|view)', delay=0, num_retries=1, max_depth=1,
-                 user_agent='GoodCrawler')
+    link_crawler('http://example.webscraping.com', '/(index|view)', delay=0, num_retries=1, max_depth=1,user_agent='GoodCrawler')
 

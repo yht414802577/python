@@ -50,7 +50,7 @@ def link_crawler(seed_url, link_regex=None, delay=5, max_depth=-1, max_urls=-1, 
             if num_urls == max_urls:
                 break
         else:
-            print 'Blocked by robots.txt:', url
+            print('Blocked by robots.txt:', url)
 
 
 

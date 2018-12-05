@@ -11,22 +11,22 @@ def download1(url):
 
 def download2(url):
     """Download function that catches errors"""
-    print 'Downloading:', url
+    print('Downloading:', url)
     try:
         html = urllib2.urlopen(url).read()
     except urllib2.URLError as e:
-        print 'Download error:', e.reason
+        print('Download error:', e.reason)
         html = None
     return html
 
 
 def download3(url, num_retries=2):
     """Download function that also retries 5XX errors"""
-    print 'Downloading:', url
+    print('Downloading:', url)
     try:
         html = urllib2.urlopen(url).read()
     except urllib2.URLError as e:
-        print 'Download error:', e.reason
+        print('Download error:', e.reason)
         html = None
         if num_retries > 0:
             if hasattr(e, 'code') and 500 <= e.code < 600:
@@ -37,13 +37,13 @@ def download3(url, num_retries=2):
 
 def download4(url, user_agent='wswp', num_retries=2):
     """Download function that includes user agent support"""
-    print 'Downloading:', url
+    print('Downloading:', url)
     headers = {'User-agent': user_agent}
     request = urllib2.Request(url, headers=headers)
     try:
         html = urllib2.urlopen(request).read()
     except urllib2.URLError as e:
-        print 'Download error:', e.reason
+        print('Download error:', e.reason)
         html = None
         if num_retries > 0:
             if hasattr(e, 'code') and 500 <= e.code < 600:
@@ -54,7 +54,7 @@ def download4(url, user_agent='wswp', num_retries=2):
 
 def download5(url, user_agent='wswp', proxy=None, num_retries=2):
     """Download function with support for proxies"""
-    print 'Downloading:', url
+    print('Downloading:', url)
     headers = {'User-agent': user_agent}
     request = urllib2.Request(url, headers=headers)
     opener = urllib2.build_opener()
@@ -64,7 +64,7 @@ def download5(url, user_agent='wswp', proxy=None, num_retries=2):
     try:
         html = opener.open(request).read()
     except urllib2.URLError as e:
-        print 'Download error:', e.reason
+        print('Download error:', e.reason)
         html = None
         if num_retries > 0:
             if hasattr(e, 'code') and 500 <= e.code < 600:
@@ -77,4 +77,5 @@ download = download5
 
 
 if __name__ == '__main__':
-    print download('http://example.webscraping.com')
+    downLoadname = download('http://example.webscraping.com')
+    print(downLoadname)

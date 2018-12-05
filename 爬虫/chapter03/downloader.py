@@ -48,7 +48,7 @@ class Downloader:
 
 
     def download(self, url, headers, proxy, num_retries, data=None):
-        print 'Downloading:', url
+        print('Downloading:', url)
         request = urllib2.Request(url, data, headers or {})
         opener = self.opener or urllib2.build_opener()
         if proxy:
@@ -59,7 +59,7 @@ class Downloader:
             html = response.read()
             code = response.code
         except Exception as e:
-            print 'Download error:', str(e)
+            print('Download error:', str(e))
             html = ''
             if hasattr(e, 'code'):
                 code = e.code

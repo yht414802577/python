@@ -34,7 +34,7 @@ def test_samples():
         if ocr(img) == text:
             correct += 1
         total += 1
-    print 'Accuracy: %d/%d' % (correct, total)
+    print('Accuracy: %d/%d' % (correct, total))
 
 
 if __name__ == '__main__':
