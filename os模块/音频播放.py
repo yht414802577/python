@@ -32,7 +32,7 @@ def get_audio():
     return res
 
 def get_token():
-    url = ' https://openapi.baidu.com/oauth/2.0/token?grant_type=client_credentials&client_id=%s&client_secret=%s'
+    url = 'https://openapi.baidu.com/oauth/2.0/token?grant_type=client_credentials&client_id=%s&client_secret=%s'
     client_id = 'xq4LTn8xQTKml4vnmY4NNtpG'
     client_secret = 'B9KcshnGDPjTjqyWgWyScdMmnm8zAQD7'
     host = url % (client_id, client_secret)
@@ -67,7 +67,8 @@ def baidu_anlay():
 
     req = requests.post(url, headers=header, data=data, verify=False).text
 
-#{"corpus_no":"6634718094253233766","err_msg":"success.","err_no":0,"result":["嗯。"],"sn":"368266649571544765684"}
+    #{"corpus_no":"6634718094253233766","err_msg":"success.","err_no":0,"result":["嗯。"],"sn":"368266649571544765684"}
+    #{"err_msg":"speech quality error.","err_no":3301,"sn":"957278164471545008621"}
     res = json.loads(req)['result'][0].replace('。','')
 
     return res
