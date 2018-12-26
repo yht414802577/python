@@ -1,6 +1,6 @@
 # encoding: utf-8
 """
-@version:??
+@version:启动__call__方法处理tkinter内部的调用
 @author:df
 """
 
