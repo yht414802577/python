@@ -81,5 +81,5 @@ def test():
     eg.runAndWait()
 
 if __name__ == '__main__':
-
+    test()
     print(baidu_anlay())
