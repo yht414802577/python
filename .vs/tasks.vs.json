@@ -1,0 +1,10 @@
+{
+  "version": "0.2.1",
+  "tasks": [
+    {
+      "taskLabel": "任务-爬虫001",
+      "appliesTo": "爬虫/爬虫001.py",
+      "type": "launch"
+    }
+  ]
+}
